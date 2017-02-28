@@ -1,5 +1,4 @@
-import org.junit.Before;
-import org.junit.Test;
+import org.junit.*;
 
 import static org.junit.Assert.*;
 
@@ -14,10 +13,14 @@ public class EmailValidatorTest {
         validator = new EmailValidator();
     }
 
+    @After
+    public void tearDown() {
+        validator = null;
+    }
+
     @Test
     public void validate() throws Exception {
         assertTrue(validator.validate("first-test-email@email.com"));
         assertFalse(validator.validate("some random string of characters"));
     }
-
 }
